@@ -9,6 +9,8 @@
 	<packaging>pom</packaging>
 
 	<name>device-cloud</name>
+	<description>基于SpringCloud设备云系统</description>
+	<url>https://github.com/Geek-Power/device-cloud</url>
 
 	<properties>
 		<!-- 指定项目编码格式 -->
@@ -34,10 +36,19 @@
 			<id>songyz</id>
 			<name>叶枫生</name>
 			<email>songyinzeng@gmail.com</email>
-			<organization>Geek-Power</organization>
-			<organizationUrl>https://github.com/Geek-Power</organizationUrl>
 		</developer>
 	</developers>
+
+	<!-- 组织信息 -->
+	<organization>
+		<name>Geek-Power</name>
+		<url>https://github.com/Geek-Power</url>
+	</organization>
+
+	<issueManagement>
+		<url>https://github.com/Geek-Power/device-cloud/issues</url>
+		<system>device cloud issues</system>
+	</issueManagement>
 
 	<!-- 设备项目子模块 -->
 	<modules>
@@ -45,7 +56,7 @@
 		<module>common-toolkit</module>
 		<!-- 系统常量集 -->
 		<module>common-constant</module>
-		<!-- 服务注册与发现-->
+		<!-- 服务注册与发现 -->
 		<module>eureka-center</module>
 		<!-- 服务注册管理中心 -->
 		<module>eureka-center-admin</module>
@@ -124,5 +135,8 @@
 			<url>http://repo.spring.io/release/</url>
 		</repository>
 	</repositories>
+
+
+
 
 </project>
