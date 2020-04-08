@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.geekpower</groupId>
+	<artifactId>device-cloud</artifactId>
+	<version>1.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>device-cloud</name>
+
+	<properties>
+		<!-- 指定项目编码格式 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- 指定Java使用版本 -->
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+
+		<!-- 指定SpringBoot版本 -->
+		<spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+		<!-- 指定SpringCloud版本，注意需要和SpringBoot版本对应 -->
+		<spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+		<!-- 简化一些必须有但显得很臃肿的Java代码的工具 -->
+		<lombok.version>1.18.12</lombok.version>
+	</properties>
+
+	<!-- 开发人员信息 -->
+	<developers>
+		<developer>
+			<id>songyz</id>
+			<name>叶枫生</name>
+			<email>songyinzeng@gmail.com</email>
+			<organization>Geek-Power</organization>
+			<organizationUrl>https://github.com/Geek-Power</organizationUrl>
+		</developer>
+	</developers>
+
+	<!-- 设备项目子模块 -->
+	<modules>
+		<!-- Java相关的工具集 -->
+		<module>common-toolkit</module>
+		<!-- 系统常量集 -->
+		<module>common-constant</module>
+		<!-- 服务注册与发现-->
+		<module>eureka-center</module>
+		<!-- 服务注册管理中心 -->
+		<module>eureka-center-admin</module>
+		<!-- 配置中心 -->
+		<module>config-center</module>
+		<!-- 网关路由 -->
+		<module>gateway-center</module>
+		<!-- 人员模块 -->
+		<module>user-service</module>
+		<!-- 设备模块 -->
+		<module>device-service</module>
+		<!-- 网点模块 -->
+		<module>station-service</module>
+		<!-- 数据报表模块 -->
+		<module>report-service</module>
+		<!-- thymeleaf作为展示层 -->
+		<module>template-thymeleaf</module>
+		<!-- vue做展示层 -->
+		<module>template-vue</module>
+	</modules>
+
+
+	<!-- 声明依赖管理 -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- SpringBoot依赖管理，该方式优于继承方式引入SpringBoot -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- SpringCloud依赖管理 -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- 当前依赖需要 IDE 安装 lombok 插件配合使用 -->
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- 构建配置 -->
+	<build>
+		<!-- 插件配置 -->
+		<plugins>
+			<!-- spring boot的打包插件 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 远程仓库配置 -->
+	<repositories>
+		<!-- 阿里仓库 -->
+		<repository>
+			<id>maven-aliyun</id>
+			<url>http://maven.aliyun.com/nexus/content/groups/public//</url>
+		</repository>
+		<!-- Spring仓库 -->
+		<repository>
+			<id>maven-spring</id>
+			<url>http://repo.spring.io/release/</url>
+		</repository>
+	</repositories>
+
+</project>
