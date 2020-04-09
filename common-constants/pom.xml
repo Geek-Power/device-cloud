@@ -5,5 +5,5 @@
     <artifactId>device-cloud</artifactId>
     <version>1.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>common-constant</artifactId>
+  <artifactId>common-constants</artifactId>
 </project>
