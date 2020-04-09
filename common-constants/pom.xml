@@ -5,5 +5,5 @@
     <artifactId>device-cloud</artifactId>
     <version>1.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>template-thymeleaf</artifactId>
+  <artifactId>common-constants</artifactId>
 </project>

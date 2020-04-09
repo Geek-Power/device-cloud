@@ -3,14 +3,34 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+
+
 	<groupId>org.geekpower</groupId>
 	<artifactId>device-cloud</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>device-cloud</name>
+
+
 	<description>基于SpringCloud设备云系统</description>
 	<url>https://github.com/Geek-Power/device-cloud</url>
+	<modules>
+		<!--  -->
+		<module>common-toolkits</module>
+		<module>common-constants</module>
+		<module>eureka-center</module>
+		<module>eureka-center-admin</module>
+		<module>gateway-center</module>
+		<module>config-center</module>
+		
+		<module>device-service</module>
+		<module>user-service</module>
+		<module>station-service</module>
+		<module>report-service</module>
+		
+		<module>template-thymeleaf</module>
+		<module>template-vue</module>
+	</modules>
 
 	<properties>
 		<!-- 指定项目编码格式 -->
@@ -21,7 +41,6 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 
-
 		<!-- 指定SpringBoot版本 -->
 		<spring-boot.version>2.2.5.RELEASE</spring-boot.version>
 		<!-- 指定SpringCloud版本，注意需要和SpringBoot版本对应 -->
@@ -30,12 +49,19 @@
 		<lombok.version>1.18.12</lombok.version>
 	</properties>
 
+
+
 	<!-- 开发人员信息 -->
 	<developers>
 		<developer>
 			<id>songyz</id>
 			<name>叶枫生</name>
 			<email>songyinzeng@gmail.com</email>
+		</developer>
+		<developer>
+			<id>chenwq</id>
+			<name>陈文庆</name>
+			<email>960879872@qq.com</email>
 		</developer>
 	</developers>
 
@@ -44,42 +70,17 @@
 		<name>Geek-Power</name>
 		<url>https://github.com/Geek-Power</url>
 	</organization>
-
+	<!-- 项目的 bug 收集 -->
 	<issueManagement>
 		<url>https://github.com/Geek-Power/device-cloud/issues</url>
 		<system>device cloud issues</system>
 	</issueManagement>
 
-	<!-- 设备项目子模块 -->
-	<modules>
-		<!-- Java相关的工具集 -->
-		<module>common-toolkit</module>
-		<!-- 系统常量集 -->
-		<module>common-constant</module>
-		<!-- 服务注册与发现 -->
-		<module>eureka-center</module>
-		<!-- 服务注册管理中心 -->
-		<module>eureka-center-admin</module>
-		<!-- 配置中心 -->
-		<module>config-center</module>
-		<!-- 网关路由 -->
-		<module>gateway-center</module>
-		<!-- 人员模块 -->
-		<module>user-service</module>
-		<!-- 设备模块 -->
-		<module>device-service</module>
-		<!-- 网点模块 -->
-		<module>station-service</module>
-		<!-- 数据报表模块 -->
-		<module>report-service</module>
-		<!-- thymeleaf作为展示层 -->
-		<module>template-thymeleaf</module>
-		<!-- vue做展示层 -->
-		<module>template-vue</module>
-	</modules>
 
 
-	<!-- 声明依赖管理 -->
+
+
+	<!-- -->
 	<dependencyManagement>
 		<dependencies>
 			<!-- SpringBoot依赖管理，该方式优于继承方式引入SpringBoot -->
@@ -98,7 +99,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-
 			<!-- 当前依赖需要 IDE 安装 lombok 插件配合使用 -->
 			<dependency>
 				<groupId>org.projectlombok</groupId>
@@ -110,9 +110,7 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<!-- 构建配置 -->
 	<build>
-		<!-- 插件配置 -->
 		<plugins>
 			<!-- spring boot的打包插件 -->
 			<plugin>
@@ -120,6 +118,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>${spring-boot.version}</version>
 			</plugin>
+
 			<plugin>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.1.1</version>
@@ -136,9 +135,9 @@
 					</execution>
 				</executions>
 			</plugin>
-		
 		</plugins>
 	</build>
+
 
 
 	<profiles>
@@ -175,7 +174,6 @@
 			</properties>
 		</profile>
 	</profiles>
-
 
 	<!-- 远程仓库配置 -->
 	<repositories>
