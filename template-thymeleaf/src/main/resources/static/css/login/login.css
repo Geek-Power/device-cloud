@@ -1,0 +1,23 @@
+#app {
+	filter: blur(1px);
+	padding: 0;
+}
+
+.bg-div {
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+	background-image: uri('/public/login/0.jpg');
+	background-position : center 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	width: 100vw;
+	transition: all .3s;
+	background-position: center 0;
+}

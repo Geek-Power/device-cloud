@@ -118,9 +118,64 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
 			</plugin>
+			<plugin>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.1.1</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<shadedArtifactAttached>true</shadedArtifactAttached>
+							<finalName>${project.artifactId}-${project.version}-${package.env}</finalName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		
 		</plugins>
 	</build>
+
+
+	<profiles>
+		<!-- 开发环境，默认激活 -->
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<env>dev</env>
+			</properties>
+
+		</profile>
+		<!--测试环境 -->
+		<profile>
+			<id>qa</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<env>qa</env>
+			</properties>
+		</profile>
+
+		<!--生产环境 -->
+		<profile>
+			<id>release</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<env>release</env>
+			</properties>
+		</profile>
+	</profiles>
+
 
 	<!-- 远程仓库配置 -->
 	<repositories>
