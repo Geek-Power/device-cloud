@@ -37,6 +37,11 @@
 			<name>叶枫生</name>
 			<email>songyinzeng@gmail.com</email>
 		</developer>
+		<developer>
+			<id>chenwq</id>
+			<name>陈文庆</name>
+			<email>960879872@qq.com</email>
+		</developer>
 	</developers>
 
 	<!-- 组织信息 -->
@@ -53,9 +58,9 @@
 	<!-- 设备项目子模块 -->
 	<modules>
 		<!-- Java相关的工具集 -->
-		<module>common-toolkit</module>
+		<module>common-toolkits</module>
 		<!-- 系统常量集 -->
-		<module>common-constant</module>
+		<module>common-constants</module>
 		<!-- 服务注册与发现 -->
 		<module>eureka-center</module>
 		<!-- 服务注册管理中心 -->
@@ -136,7 +141,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		
+
 		</plugins>
 	</build>
 
